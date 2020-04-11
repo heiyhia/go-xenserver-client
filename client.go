@@ -386,7 +386,7 @@ func (client *XenAPIClient) CreateNetwork(name_label string, name_description st
 
 func NewXenAPIClient(host, username, password string) (client XenAPIClient) {
 	client.Host = host
-	client.Url = "http://" + host
+	client.Url = "https://" + host
 	client.Username = username
 	client.Password = password
 	client.RPC, _ = xmlrpc.NewClient(client.Url, nil)

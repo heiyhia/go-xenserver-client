@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.org/xenserver/go-xenserver-client.svg?branch=master)](https://travis-ci.org/xenserver/go-xenserver-client)
 
+
+由于这个包几乎没人维护https://github.com/xenserver/go-xenserver-client
+里面有些依赖需要调整 所以拷贝了一份代码自用
+
 go-xenserver-client
 ===================
 

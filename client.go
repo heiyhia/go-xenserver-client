@@ -393,7 +393,7 @@ func NewXenAPIClient(host, username, password string) (client XenAPIClient) {
 	client.Password = password
 
 	transport := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: false},
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 	}
 	client.RPC, _ = xmlrpc.NewClient(client.Url, transport)
 	return

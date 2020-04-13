@@ -572,6 +572,17 @@ func (self *VM) SetIsATemplate(is_a_template bool) (err error) {
 	return
 }
 
+func (self *VM) GetIsATemplate() (isATemplate bool, err error) {
+	result := APIResult{}
+	err = self.Client.APICall(&result, "VM.get_is_a_template", self.Ref)
+	if err != nil {
+		return 
+	}
+
+	isATemplate = result.Value.(bool)
+	return
+}
+
 func (self *VM) GetOtherConfig() (other_config map[string]string, err error) {
 	result := APIResult{}
 	other_config = make(map[string]string)

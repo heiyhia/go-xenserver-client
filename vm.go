@@ -576,7 +576,7 @@ func (self *VM) GetIsATemplate() (isATemplate bool, err error) {
 	result := APIResult{}
 	err = self.Client.APICall(&result, "VM.get_is_a_template", self.Ref)
 	if err != nil {
-		return 
+		return
 	}
 
 	isATemplate = result.Value.(bool)

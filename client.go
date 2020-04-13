@@ -1,10 +1,12 @@
 package client
 
 import (
+	"crypto/tls"
 	"errors"
 	"fmt"
 	log "github.com/sirupsen/logrus"
 	"github.com/nilshell/xmlrpc"
+	"net/http"
 )
 
 type XenAPIClient struct {
@@ -389,6 +391,10 @@ func NewXenAPIClient(host, username, password string) (client XenAPIClient) {
 	client.Url = "https://" + host
 	client.Username = username
 	client.Password = password
-	client.RPC, _ = xmlrpc.NewClient(client.Url, nil)
+
+	transport := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: false},
+	}
+	client.RPC, _ = xmlrpc.NewClient(client.Url, transport)
 	return
 }
